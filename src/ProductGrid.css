@@ -1,7 +1,7 @@
   /* ProductGrid.css */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Cambiado para establecer explícitamente 4 columnas */
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
@@ -9,6 +9,11 @@
   border: 1px solid #ddd;
   padding: 70px;
   text-align: center;
+  transition: transform 0.3s;
+}
+
+.product:hover {
+  transform: scale(1.1);
 }
 
 .product img {
