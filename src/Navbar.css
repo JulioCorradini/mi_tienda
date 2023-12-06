@@ -18,10 +18,10 @@
   
   .navbar ul {
     list-style: none;
+    margin-top: 40px;
     padding: 0;
     text-align: center;
   }
-  
   .navbar li {
     padding: 15px;
     cursor: pointer;

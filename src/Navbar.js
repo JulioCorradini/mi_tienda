@@ -21,12 +21,14 @@ const Navbar = ({ setActiveSection }) => {
       <button onClick={handleToggleMenu} className="menu-button">
         ☰
       </button>
-      <ul>
-        <li onClick={() => handleSectionClick('Inicio')}>Inicio</li>
-        <li onClick={() => handleSectionClick('Productos')}>Productos</li>
-        <li onClick={() => handleSectionClick('Contacto')}>Contacto</li>
-        {/* Agrega más elementos del menú según sea necesario */}
-      </ul>
+      {menuOpen && (
+        <ul>
+          <li onClick={() => handleSectionClick('Inicio')}>Inicio</li>
+          <li onClick={() => handleSectionClick('Productos')}>Productos</li>
+          <li onClick={() => handleSectionClick('Contacto')}>Contacto</li>
+          {/* Agrega más elementos del menú según sea necesario */}
+        </ul>
+      )}
     </div>
   );
 }
