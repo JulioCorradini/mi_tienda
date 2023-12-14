@@ -26,6 +26,7 @@ const Navbar = ({ setActiveSection }) => {
           <li onClick={() => handleSectionClick('Inicio')}>Inicio</li>
           <li onClick={() => handleSectionClick('Productos')}>Productos</li>
           <li onClick={() => handleSectionClick('Contacto')}>Contacto</li>
+          <li onClick={() => handleSectionClick('Carrito')}>Mi Carrito</li>
           {/* Agrega más elementos del menú según sea necesario */}
         </ul>
       )}
