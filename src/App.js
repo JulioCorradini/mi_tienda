@@ -18,6 +18,13 @@ const products = [
   // Agrega más productos según sea necesario
 ];
 
+// Este Array debe construirse cuando se van clickeando los productos del Array 'products'.!!!!!!!!!
+const carrito = [
+  {id: 1, name: 'Producto 1', price: 20, image: 'url-de-la-imagen-1.jpg'},
+  {id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg'},
+  {id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg'},
+];
+
 function App() {
   
   const [activeSection, setActiveSection] = useState('Inicio');
@@ -25,13 +32,13 @@ function App() {
   const renderSection = () => {
     switch (activeSection) {
       case 'Productos':
-        return <ProductsSection products={products} />;
+        return <ProductsSection products={products}/>;
       case 'Contacto':
         return <ContactSection />;
       case 'Inicio':
         return <InitSection />;
       case 'Carrito':
-          return <CarritoSection />;
+          return <CarritoSection products={carrito}/>;
       // Agrega más casos para otras secciones según sea necesario
       default:
         return <div><h2>Inicio</h2><p>Contenido de la sección de Inicio</p></div>;
