@@ -1,11 +1,11 @@
 import React from 'react';
-import ProductGrid from './ProductGrid';
+import CarritoGrid from './CarritoGrid';
 
-const CarritoSection = ({ products }) => {
+const CarritoSection = ({ products, quitarProductoDelCarrito}) => {
   return (
     <div className="section-container fade-in">
       <h2>Mi Carrito</h2>
-      <ProductGrid products={products} />
+      <CarritoGrid products={products} quitarProductoDelCarrito={quitarProductoDelCarrito}/>
     </div>
   );
 }

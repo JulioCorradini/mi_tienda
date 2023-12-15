@@ -1,13 +1,13 @@
 // ProductGrid.js
 import React from 'react';
-import './ProductGrid.css';
+import './CarritoGrid.css';
 
-const ProductGrid = ({ products, agregarProductoAlCarrito }) => {
+const CarritoGrid = ({ products, quitarProductoDelCarrito }) => {
 
   return (
-    <div className="product-grid">
+    <div className="carrito-grid">
       {products.map(product => (
-        <div key={product.id} className="product" onClick={() => agregarProductoAlCarrito(product)}>
+        <div key={product.id} className="product" onClick={() => quitarProductoDelCarrito(product)}>
           <img src={product.image} alt={product.name} />
           <p>{product.name}</p>
           <p>${product.price}</p>
@@ -17,4 +17,4 @@ const ProductGrid = ({ products, agregarProductoAlCarrito }) => {
   );
 }
 
-export default ProductGrid;
+export default CarritoGrid;

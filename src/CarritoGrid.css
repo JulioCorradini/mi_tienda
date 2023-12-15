@@ -1,0 +1,24 @@
+  /* ProductGrid.css */
+  .carrito-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .product {
+    border: 1px solid #ddd;
+    padding: 70px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .product:hover {
+    transform: scale(1.1);
+  }
+  
+  .product img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+    

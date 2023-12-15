@@ -1,8 +1,6 @@
 // App.js
-//import React from 'react';
 import React, { useState } from 'react';
 import Navbar from './Navbar';
-//import ProductGrid from './ProductGrid';
 import ProductsSection from './ProductsSection';
 import ContactSection from './ContactSection';
 import InitSection from './InitSection';
@@ -12,33 +10,38 @@ import './App.css';
 const products = [
   { id: 1, name: 'Producto 1', price: 20, image: 'url-de-la-imagen-1.jpg' },
   { id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg' },
-  { id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg' },
-  { id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg' },
-  { id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg' }
+  { id: 3, name: 'Producto 3', price: 30, image: 'url-de-la-imagen-2.jpg' },
+  { id: 4, name: 'Producto 4', price: 30, image: 'url-de-la-imagen-2.jpg' },
+  { id: 5, name: 'Producto 5', price: 30, image: 'url-de-la-imagen-2.jpg' }
   // Agrega más productos según sea necesario
-];
-
-// Este Array debe construirse cuando se van clickeando los productos del Array 'products'.!!!!!!!!!
-const carrito = [
-  {id: 1, name: 'Producto 1', price: 20, image: 'url-de-la-imagen-1.jpg'},
-  {id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg'},
-  {id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg'},
 ];
 
 function App() {
   
   const [activeSection, setActiveSection] = useState('Inicio');
+  const [carrito, setCarrito] = useState([]);
+
+  const agregarProductoAlCarrito = (product) => {
+    if (!carrito.includes(product)) {
+      setCarrito([...carrito, product]);
+    }
+    console.log(carrito);
+  };
+
+  const quitarProductoDelCarrito = (product) => {
+    setCarrito(carrito.filter(item => item !== product));
+  };
 
   const renderSection = () => {
     switch (activeSection) {
       case 'Productos':
-        return <ProductsSection products={products}/>;
+        return <ProductsSection products={products} agregarProductoAlCarrito={agregarProductoAlCarrito}/>;
       case 'Contacto':
         return <ContactSection />;
       case 'Inicio':
         return <InitSection />;
       case 'Carrito':
-          return <CarritoSection products={carrito}/>;
+          return <CarritoSection products={carrito} quitarProductoDelCarrito={quitarProductoDelCarrito}/>;
       // Agrega más casos para otras secciones según sea necesario
       default:
         return <div><h2>Inicio</h2><p>Contenido de la sección de Inicio</p></div>;
