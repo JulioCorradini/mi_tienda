@@ -14,11 +14,16 @@
   
   .product:hover {
     transform: scale(1.1);
+    cursor: pointer;
   }
   
   .product img {
     max-width: 100%;
     height: auto;
+  }
+  
+  .product:active {
+    transform: translateY(2px);
   }
   
     
