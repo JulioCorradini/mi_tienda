@@ -28,8 +28,8 @@ function App() {
       if (!response.ok){
         throw new Error('Error al obtener los productos de la API')
       }
-      const data = await Response.json();
-      setProducts = data;
+      const data = await response.json();
+      setProducts(data);
     } catch (error) {
       console.error(error.message);
     };
