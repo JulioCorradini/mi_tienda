@@ -1,5 +1,5 @@
 // App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import ProductsSection from './ProductsSection';
 import ContactSection from './ContactSection';
@@ -7,19 +7,37 @@ import InitSection from './InitSection';
 import CarritoSection from './CarritoSection';
 import './App.css';
 
-const products = [
+/*const products = [
   { id: 1, name: 'Producto 1', price: 20, image: 'url-de-la-imagen-1.jpg' },
   { id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg' },
   { id: 3, name: 'Producto 3', price: 30, image: 'url-de-la-imagen-2.jpg' },
   { id: 4, name: 'Producto 4', price: 30, image: 'url-de-la-imagen-2.jpg' },
   { id: 5, name: 'Producto 5', price: 30, image: 'url-de-la-imagen-2.jpg' }
   // Agrega más productos según sea necesario
-];
+];*/
 
 function App() {
   
   const [activeSection, setActiveSection] = useState('Inicio');
   const [carrito, setCarrito] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  const fetchProducts = async ()=>{
+    try{
+      const response = await fetch ('http://localhost:3001/api/products');
+      if (!response.ok){
+        throw new Error('Error al obtener los productos de la API')
+      }
+      const data = await Response.json();
+      setProducts = data;
+    } catch (error) {
+      console.error(error.message);
+    };
+  };
+
+  useEffect(()=>{
+    fetchProducts();
+  }, []);
 
   const agregarProductoAlCarrito = (product) => {
     if (!carrito.includes(product)) {
