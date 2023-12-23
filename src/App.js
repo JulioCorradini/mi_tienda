@@ -7,21 +7,13 @@ import InitSection from './InitSection';
 import CarritoSection from './CarritoSection';
 import './App.css';
 
-/*const products = [
-  { id: 1, name: 'Producto 1', price: 20, image: 'url-de-la-imagen-1.jpg' },
-  { id: 2, name: 'Producto 2', price: 30, image: 'url-de-la-imagen-2.jpg' },
-  { id: 3, name: 'Producto 3', price: 30, image: 'url-de-la-imagen-2.jpg' },
-  { id: 4, name: 'Producto 4', price: 30, image: 'url-de-la-imagen-2.jpg' },
-  { id: 5, name: 'Producto 5', price: 30, image: 'url-de-la-imagen-2.jpg' }
-  // Agrega más productos según sea necesario
-];*/
-
 function App() {
   
   const [activeSection, setActiveSection] = useState('Inicio');
   const [carrito, setCarrito] = useState([]);
   const [products, setProducts] = useState([]);
 
+  //Conección a la API
   const fetchProducts = async ()=>{
     try{
       const response = await fetch ('http://localhost:3001/api/products');
@@ -39,6 +31,7 @@ function App() {
     fetchProducts();
   }, []);
 
+  //Función para agregara productos a la lista carrito
   const agregarProductoAlCarrito = (product) => {
     if (!carrito.includes(product)) {
       setCarrito([...carrito, product]);
@@ -50,6 +43,7 @@ function App() {
     setCarrito(carrito.filter(item => item !== product));
   };
 
+  //Sección para renderizar las secciones
   const renderSection = () => {
     switch (activeSection) {
       case 'Productos':

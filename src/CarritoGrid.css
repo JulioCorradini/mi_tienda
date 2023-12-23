@@ -25,5 +25,18 @@
   .product:active {
     transform: translateY(2px);
   }
-  
+
+  .button-compra {
+    background-color: rgb(211, 55, 55);
+    margin-top: 30px;
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+
+  .button-compra:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
     

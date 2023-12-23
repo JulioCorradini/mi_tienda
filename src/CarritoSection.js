@@ -6,6 +6,7 @@ const CarritoSection = ({ products, quitarProductoDelCarrito}) => {
     <div className="section-container fade-in">
       <h2>Mi Carrito</h2>
       <CarritoGrid products={products} quitarProductoDelCarrito={quitarProductoDelCarrito}/>
+      <button className="button-compra">Pagar</button>
     </div>
   );
 }
